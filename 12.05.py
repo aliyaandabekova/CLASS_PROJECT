@@ -44,9 +44,15 @@ class Developer(Employee):
 
     @property
     def position(self):
-        return self._position
+        return self.__position
 
     @position.setter
+    def position(self, new_position:str):
+        if new_position in ['junior','middle','senior','team lead']:
+            self.__position = new_position
+        else:
+            print('Такой позиции нет')
+
 
 
 import random
@@ -63,20 +69,32 @@ for i in list1:
 dict1 = {erbol:'399K',cholpon:'209K',aliya:'100K',begimai:'70K',zinko:'60K'}
 
 
-for obj in dict1:
-    dict1[obj] = int(dict1[obj].replace('K','000'))
-    if dict1[obj] != obj.salary:
-        dict1[obj] = obj.salary
-        if obj.salary > 300000:
-            obj.position = 'team lead'
-        elif  150000 <= obj.salary  <= 220000:
-            obj.position = 'senior'
-        elif 100000 <= obj.salary <= 150000:
-            obj.position = 'middle'
-        elif 50001 <= obj.salary <= 100000:
-            obj.position = 'junior'
-print(dict1)
+# for obj in dict1:
+#     dict1[obj] = int(dict1[obj].replace('K','000'))
+#     if dict1[obj] != obj.salary:
+#         dict1[obj] = obj.salary
+#         if obj.salary > 300000:
+#             obj.position = 'team lead'
+#         elif  150000 <= obj.salary  <= 220000:
+#             obj.position = 'senior'
+#         elif 100000 <= obj.salary <= 150000:
+#             obj.position = 'middle'
+#         elif 50001 <= obj.salary <= 100000:
+#             obj.position = 'junior'
+# print(dict1)
+
+
+erbol.position = 'junior'
 print(erbol.__dict__)
+
+
+"""
+Разработчики у которых зарплата больше 300К - team lead, у которых больше 150K
+ но меньше 220К - senior, у тех 100К - 150К - middle, разработчики чьи зарплаты больше 50К
+ но меньше 100 - junior.
+Сделать property для position для проверки установки нового значения. Доступные варианты -
+junior,middle,senior,team lead
+"""
 
 
 

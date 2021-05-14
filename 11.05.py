@@ -20,7 +20,7 @@ class Employee:
         if isinstance(summ,(int,float)) and summ > 0:
             self.__salary = summ
         else:
-            print('summ - параметр имеет недопустимый вид!')
+            print('summ - параметр имеетx недопустимый вид!')
 
     @salary.deleter
     def salary(self):
